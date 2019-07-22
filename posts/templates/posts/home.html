@@ -4,9 +4,11 @@
 
 {% for post in posts.all %}
 
-{{ post.title }}
+{{ post.id }}
 <br />
 {{ post.pub_date_pretty }}
+<br />
+<img src="{{ post.image.url }}" />
 <br />
 {{ post.summary }}
 <br />
