@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+
+
+
   <title>Django Blog</title>
 </head>
 
@@ -41,25 +46,27 @@
     </div>
   </nav>
 
+  <div class="container" id="topcont">
 
-  <h1>Welcome to my blog!</h1>
+    <h1>Welcome to my blog!</h1>
 
-  <h2>Latest Posts</h2>
+    <h2>Latest Posts</h2>
+    <hr />
 
-  {% for post in posts.all %}
+    {% for post in posts.all %}
 
-  <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
-  <br />
-  {{ post.pub_date_pretty }}
-  <br />
-  <img src="{{ post.image.url }}" />
-  <br />
-  {{ post.summary }}
-  <br />
-  <br />
+    <a href="{% url 'post_detail' post.id %}"><h3>{{ post.title }}</h3></a>
+    <h6><i class="far fa-clock"></i> {{ post.pub_date_pretty }}</h6>
+    <br />
+    <img src="{{ post.image.url }}" class="img-fluid mx-auto d-block" style="max-height:150px;" />
+    <br />
+    <p>{{ post.summary }}</p>
+    <br />
+    <br />
 
-  {% endfor %}
+    {% endfor %}
 
+  </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
